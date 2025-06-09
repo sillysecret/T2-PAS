@@ -1,0 +1,13 @@
+package com.example.past2;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PasT2Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(PasT2Application.class, args);
+    }
+
+}
