@@ -1,4 +1,4 @@
-package com.example.past2.infrastructure.persistence.entity;
+package com.example.past2.adapter.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

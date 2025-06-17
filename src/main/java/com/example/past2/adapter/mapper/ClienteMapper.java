@@ -1,11 +1,11 @@
-package com.example.past2.infrastructure.mapper;
+package com.example.past2.adapter.mapper;
 
+import com.example.past2.adapter.entity.ClienteEntity;
+import com.example.past2.adapter.entity.EmpresarialEntity;
+import com.example.past2.adapter.entity.IndividualEntity;
 import com.example.past2.domain.model.Cliente;
 import com.example.past2.domain.model.Empresarial;
 import com.example.past2.domain.model.Individual;
-import com.example.past2.infrastructure.persistence.entity.ClienteEntity;
-import com.example.past2.infrastructure.persistence.entity.EmpresarialEntity;
-import com.example.past2.infrastructure.persistence.entity.IndividualEntity;
 
 public class ClienteMapper {
 

@@ -1,11 +1,11 @@
-package com.example.past2.infrastructure.mapper;
+package com.example.past2.adapter.mapper;
 
+import com.example.past2.adapter.entity.JogoEletronicoEntity;
+import com.example.past2.adapter.entity.JogoEntity;
+import com.example.past2.adapter.entity.JogoMesaEntity;
 import com.example.past2.domain.model.Jogo;
 import com.example.past2.domain.model.JogoEletronico;
 import com.example.past2.domain.model.JogoMesa;
-import com.example.past2.infrastructure.persistence.entity.JogoEletronicoEntity;
-import com.example.past2.infrastructure.persistence.entity.JogoEntity;
-import com.example.past2.infrastructure.persistence.entity.JogoMesaEntity;
 
 public class JogoMapper {
 

@@ -1,8 +1,8 @@
-package com.example.past2.infrastructure.mapper;
+package com.example.past2.adapter.mapper;
 
 
+import com.example.past2.adapter.entity.AluguelEntity;
 import com.example.past2.domain.model.Aluguel;
-import com.example.past2.infrastructure.persistence.entity.AluguelEntity;
 
 public class AluguelMapper {
 

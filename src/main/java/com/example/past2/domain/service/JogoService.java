@@ -1,13 +1,11 @@
-package com.example.past2.application.service;
+package com.example.past2.domain.service;
 
 import com.example.past2.domain.model.Jogo;
 import com.example.past2.domain.repository.IJogoRepository;
-import com.example.past2.infrastructure.mapper.JogoMapper;
-import com.example.past2.infrastructure.persistence.JogoJpaRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class JogoService {
@@ -20,5 +18,10 @@ public class JogoService {
     public List<Jogo> listarTodos() {
         return jogoRepository.findAll();
     }
-}
 
+    public boolean validar(Integer codigo) {
+        Jogo jogo = jogoRepository.findById(codigo);
+
+        return jogo != null;
+    }
+}

@@ -1,16 +1,18 @@
 package com.example.past2.infrastructure.persistence;
 
+import com.example.past2.adapter.mapper.JogoMapper;
 import com.example.past2.domain.model.Jogo;
 import com.example.past2.domain.repository.IJogoRepository;
-import com.example.past2.infrastructure.mapper.JogoMapper;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public class JogoRepositoryImpl implements IJogoRepository {
-    private final JogoJpaRepository jpaRepository;
+    private final IJogoJpaRepository jpaRepository;
 
-    public JogoRepositoryImpl(JogoJpaRepository jpaRepository) {
+    public JogoRepositoryImpl(IJogoJpaRepository jpaRepository) {
         this.jpaRepository = jpaRepository;
     }
 
@@ -19,5 +21,11 @@ public class JogoRepositoryImpl implements IJogoRepository {
                 .stream()
                 .map(JogoMapper::toModel)
                 .toList();
+    }
+
+    public Jogo findById(Integer id) {
+        return jpaRepository.findById(id)
+                .map(JogoMapper::toModel)
+                .orElse(null);
     }
 }
