@@ -3,6 +3,7 @@ package com.example.past2.enterprisebusinessrules.model;
 import lombok.Data;
 
 import java.time.LocalDate;
+
 @Data
 public class Aluguel {
     private Integer identificador;
@@ -11,7 +12,8 @@ public class Aluguel {
     private Cliente cliente;
     private Jogo jogo;
 
-    public Aluguel() {}
+    public Aluguel() {
+    }
 
     public Aluguel(Integer identificador, LocalDate dataInicial, Integer periodo, Cliente cliente, Jogo jogo) {
         this.identificador = identificador;

@@ -1,8 +1,7 @@
 package com.example.past2.interfaceadapters.mapper;
 
-
-import com.example.past2.interfaceadapters.entity.AluguelEntity;
 import com.example.past2.enterprisebusinessrules.model.Aluguel;
+import com.example.past2.interfaceadapters.entity.AluguelEntity;
 
 public class AluguelMapper {
 
@@ -12,8 +11,7 @@ public class AluguelMapper {
                 entity.getDataInicial(),
                 entity.getPeriodo(),
                 ClienteMapper.toModel(entity.getCliente()),
-                JogoMapper.toModel(entity.getJogo())
-        );
+                JogoMapper.entityToModel(entity.getJogo()));
     }
 
     public static AluguelEntity toEntity(Aluguel model) {

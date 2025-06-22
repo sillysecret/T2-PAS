@@ -7,7 +7,8 @@ public class JogoEletronico extends Jogo {
     private TipoEletronico tipo;
     private String plataforma;
 
-    public JogoEletronico() {}
+    public JogoEletronico() {
+    }
 
     public JogoEletronico(Integer codigo, String nome, Double valorBase, TipoEletronico tipo, String plataforma) {
         super(codigo, nome, valorBase);

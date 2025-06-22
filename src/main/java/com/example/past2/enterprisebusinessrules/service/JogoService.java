@@ -24,4 +24,10 @@ public class JogoService {
 
         return jogo != null;
     }
+
+    public boolean cadastrar(Jogo jogo) {
+        Jogo result = jogoRepository.save(jogo);
+
+        return result != null;
+    }
 }

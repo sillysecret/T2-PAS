@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface IJogoRepository {
     List<Jogo> findAll();
+
     Jogo findById(Integer id);
+
+    Jogo save(Jogo jogo);
 }

@@ -7,7 +7,8 @@ public class JogoMesa extends Jogo {
     private TipoMesa tipo;
     private Integer numeroPecas;
 
-    public JogoMesa() {}
+    public JogoMesa() {
+    }
 
     public JogoMesa(Integer codigo, String nome, Double valorBase, TipoMesa tipo, Integer numeroPecas) {
         super(codigo, nome, valorBase);

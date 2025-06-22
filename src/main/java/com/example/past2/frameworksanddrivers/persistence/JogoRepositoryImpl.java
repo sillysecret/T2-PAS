@@ -1,9 +1,9 @@
 package com.example.past2.frameworksanddrivers.persistence;
 
-import com.example.past2.interfaceadapters.mapper.JogoMapper;
 import com.example.past2.enterprisebusinessrules.model.Jogo;
 import com.example.past2.enterprisebusinessrules.repository.IJogoRepository;
-
+import com.example.past2.interfaceadapters.entity.JogoEntity;
+import com.example.past2.interfaceadapters.mapper.JogoMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,13 +19,20 @@ public class JogoRepositoryImpl implements IJogoRepository {
     public List<Jogo> findAll() {
         return jpaRepository.findAll()
                 .stream()
-                .map(JogoMapper::toModel)
+                .map(JogoMapper::entityToModel)
                 .toList();
     }
 
     public Jogo findById(Integer id) {
         return jpaRepository.findById(id)
-                .map(JogoMapper::toModel)
+                .map(JogoMapper::entityToModel)
                 .orElse(null);
+    }
+
+    public Jogo save(Jogo jogo) {
+        JogoEntity jogoEntity = JogoMapper.toEntity(jogo);
+        JogoEntity savedEntity = jpaRepository.save(jogoEntity);
+
+        return JogoMapper.entityToModel(savedEntity);
     }
 }

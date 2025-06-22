@@ -19,17 +19,17 @@ public class DatabaseInitializer {
     @Bean
     public CommandLineRunner initDatabase(IClienteJpaRepository clienteRepository, IJogoJpaRepository jogoRepository, IAluguelJpaRepository aluguelRepository) {
         return args -> {
-            EmpresarialEntity empresa1 = new EmpresarialEntity();
-            empresa1.setNome("Empresa Alpha");
-            empresa1.setEndereco("Avenida Industrial, 1000");
-            empresa1.setNomeFantasia("Alpha Tech");
-            empresa1.setCnpj("11.222.333/0001-44");
+            EmpresarialEntity empresarial1 = new EmpresarialEntity();
+            empresarial1.setNome("Empresa Alpha");
+            empresarial1.setEndereco("Avenida Industrial, 1000");
+            empresarial1.setNomeFantasia("Alpha Tech");
+            empresarial1.setCnpj("11.222.333/0001-44");
 
-            EmpresarialEntity empresa2 = new EmpresarialEntity();
-            empresa2.setNome("Empresa Beta");
-            empresa2.setEndereco("Rua Comercial, 456");
-            empresa2.setNomeFantasia("Beta Softwares");
-            empresa2.setCnpj("22.333.444/0001-55");
+            EmpresarialEntity empresarial2 = new EmpresarialEntity();
+            empresarial2.setNome("Empresa Beta");
+            empresarial2.setEndereco("Rua Comercial, 456");
+            empresarial2.setNomeFantasia("Beta Softwares");
+            empresarial2.setCnpj("22.333.444/0001-55");
 
             IndividualEntity cliente1 = new IndividualEntity();
             cliente1.setNome("Carlos Silva");
@@ -41,12 +41,12 @@ public class DatabaseInitializer {
             cliente2.setEndereco("Avenida Brasil, 789");
             cliente2.setCpf("987.654.321-00");
 
-            clienteRepository.save(empresa1);
-            clienteRepository.save(empresa2);
+            clienteRepository.save(empresarial1);
+            clienteRepository.save(empresarial2);
             clienteRepository.save(cliente1);
             clienteRepository.save(cliente2);
 
-            System.out.println("Banco populado com dados de exemplo.");
+            System.out.println("Clientes populados no banco.");
 
             JogoMesaEntity xadrez = new JogoMesaEntity();
             xadrez.setNome("Xadrez Profissional");
@@ -54,28 +54,24 @@ public class DatabaseInitializer {
             xadrez.setTipo(TipoMesa.TABULEIRO);
             xadrez.setNumeroPecas(32);
 
-            // Jogo de mesa 2
             JogoMesaEntity dama = new JogoMesaEntity();
             dama.setNome("Damas Clássico");
             dama.setValorBase(100.0);
             dama.setTipo(TipoMesa.TABULEIRO);
             dama.setNumeroPecas(24);
 
-            // Jogo eletrônico 1
             JogoEletronicoEntity fifa = new JogoEletronicoEntity();
             fifa.setNome("FIFA 24");
             fifa.setValorBase(299.90);
             fifa.setTipo(TipoEletronico.ESTRATEGIA);
             fifa.setPlataforma("PS5");
 
-            // Jogo eletrônico 2
             JogoEletronicoEntity zelda = new JogoEletronicoEntity();
             zelda.setNome("Zelda: Breath of the Wild");
             zelda.setValorBase(349.90);
             zelda.setTipo(TipoEletronico.AVENTURA);
             zelda.setPlataforma("Nintendo Switch");
 
-            // Salvando todos
             jogoRepository.save(xadrez);
             jogoRepository.save(dama);
             jogoRepository.save(fifa);
@@ -105,8 +101,15 @@ public class DatabaseInitializer {
             aluguel2.setDataInicial(LocalDate.now());
             aluguel2.setPeriodo(3);
 
+            AluguelEntity aluguel3 = new AluguelEntity();
+            aluguel3.setCliente(clientes.get(2));
+            aluguel3.setJogo(jogos.get(2));
+            aluguel3.setDataInicial(LocalDate.now());
+            aluguel3.setPeriodo(3);
+
             aluguelRepository.save(aluguel1);
             aluguelRepository.save(aluguel2);
+            aluguelRepository.save(aluguel3);
 
             System.out.println("Aluguéis populados no banco.");
         };

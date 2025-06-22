@@ -1,5 +1,8 @@
 package com.example.past2.interfaceadapters.mapper;
 
+import com.example.past2.interfaceadapters.dto.JogoDTO;
+import com.example.past2.interfaceadapters.dto.JogoEletronicoDTO;
+import com.example.past2.interfaceadapters.dto.JogoMesaDTO;
 import com.example.past2.interfaceadapters.entity.JogoEletronicoEntity;
 import com.example.past2.interfaceadapters.entity.JogoEntity;
 import com.example.past2.interfaceadapters.entity.JogoMesaEntity;
@@ -9,7 +12,16 @@ import com.example.past2.enterprisebusinessrules.model.JogoMesa;
 
 public class JogoMapper {
 
-    public static Jogo toModel(JogoEntity entity) {
+    public static Jogo dtoToModel(JogoDTO dto) {
+        if (dto instanceof JogoEletronicoDTO e) {
+            return new JogoEletronico(e.getCodigo(), e.getNome(), e.getValorBase(), e.getTipo(), e.getPlataforma());
+        } else if (dto instanceof JogoMesaDTO m) {
+            return new JogoMesa(m.getCodigo(), m.getNome(), m.getValorBase(), m.getTipo(), m.getNumeroPecas());
+        }
+        throw new IllegalArgumentException("Tipo de jogo desconhecido");
+    }
+
+    public static Jogo entityToModel(JogoEntity entity) {
         if (entity instanceof JogoEletronicoEntity e) {
             return new JogoEletronico(e.getCodigo(), e.getNome(), e.getValorBase(), e.getTipo(), e.getPlataforma());
         } else if (entity instanceof JogoMesaEntity m) {

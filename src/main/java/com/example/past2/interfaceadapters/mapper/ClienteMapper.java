@@ -13,7 +13,8 @@ public class ClienteMapper {
         if (entity instanceof IndividualEntity ind) {
             return new Individual(ind.getNumero(), ind.getNome(), ind.getEndereco(), ind.getCpf());
         } else if (entity instanceof EmpresarialEntity emp) {
-            return new Empresarial(emp.getNumero(), emp.getNome(), emp.getEndereco(), emp.getNomeFantasia(), emp.getCnpj());
+            return new Empresarial(emp.getNumero(), emp.getNome(), emp.getEndereco(), emp.getNomeFantasia(),
+                    emp.getCnpj());
         }
         throw new IllegalArgumentException("Tipo de cliente desconhecido");
     }

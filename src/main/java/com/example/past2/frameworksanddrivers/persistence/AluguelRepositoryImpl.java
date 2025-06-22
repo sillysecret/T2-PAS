@@ -3,10 +3,6 @@ package com.example.past2.frameworksanddrivers.persistence;
 import com.example.past2.enterprisebusinessrules.model.Aluguel;
 import com.example.past2.enterprisebusinessrules.repository.IAluguelRepository;
 import com.example.past2.interfaceadapters.mapper.AluguelMapper;
-import com.example.past2.interfaceadapters.mapper.JogoMapper;
-import com.example.past2.enterprisebusinessrules.model.Jogo;
-import com.example.past2.enterprisebusinessrules.repository.IJogoRepository;
-
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -25,5 +21,4 @@ public class AluguelRepositoryImpl implements IAluguelRepository {
                 .map(AluguelMapper::toModel)
                 .toList();
     }
-
 }

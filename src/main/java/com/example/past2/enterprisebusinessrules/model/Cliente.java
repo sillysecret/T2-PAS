@@ -8,7 +8,8 @@ public abstract class Cliente {
     private String nome;
     private String endereco;
 
-    public Cliente() {}
+    public Cliente() {
+    }
 
     public Cliente(Integer numero, String nome, String endereco) {
         this.numero = numero;
@@ -16,4 +17,3 @@ public abstract class Cliente {
         this.endereco = endereco;
     }
 }
-

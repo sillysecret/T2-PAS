@@ -8,7 +8,8 @@ public abstract class Jogo {
     private String nome;
     private Double valorBase;
 
-    public Jogo() {}
+    public Jogo() {
+    }
 
     public Jogo(Integer codigo, String nome, Double valorBase) {
         this.codigo = codigo;

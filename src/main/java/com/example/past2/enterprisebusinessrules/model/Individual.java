@@ -6,7 +6,8 @@ import lombok.Data;
 public class Individual extends Cliente {
     private String cpf;
 
-    public Individual() {}
+    public Individual() {
+    }
 
     public Individual(Integer numero, String nome, String endereco, String cpf) {
         super(numero, nome, endereco);
