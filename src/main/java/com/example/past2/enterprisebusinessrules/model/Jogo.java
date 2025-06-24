@@ -17,4 +17,6 @@ public abstract class Jogo {
         this.valorBase = valorBase;
     }
 
+    public abstract Double getValorAluguel();
+
 }

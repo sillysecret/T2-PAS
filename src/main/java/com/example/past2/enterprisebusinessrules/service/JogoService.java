@@ -3,6 +3,7 @@ package com.example.past2.enterprisebusinessrules.service;
 import com.example.past2.enterprisebusinessrules.model.Jogo;
 import com.example.past2.enterprisebusinessrules.repository.IJogoRepository;
 
+import com.example.past2.interfaceadapters.entity.JogoEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,5 +30,11 @@ public class JogoService {
         Jogo result = jogoRepository.save(jogo);
 
         return result != null;
+    }
+
+    public Double obterValorJogoPorCodigo(Integer codigo) {
+        return jogoRepository.findEntityById(codigo)
+                .map(JogoEntity::getValorAluguel)
+                .orElse(null);
     }
 }

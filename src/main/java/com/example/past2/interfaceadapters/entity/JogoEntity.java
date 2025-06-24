@@ -3,6 +3,8 @@ package com.example.past2.interfaceadapters.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -16,4 +18,5 @@ public abstract class JogoEntity {
     private String nome;
     private Double valorBase;
 
+    public abstract Double getValorAluguel();
 }

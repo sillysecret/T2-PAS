@@ -7,6 +7,7 @@ import com.example.past2.interfaceadapters.mapper.JogoMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class JogoRepositoryImpl implements IJogoRepository {
@@ -34,5 +35,10 @@ public class JogoRepositoryImpl implements IJogoRepository {
         JogoEntity savedEntity = jpaRepository.save(jogoEntity);
 
         return JogoMapper.entityToModel(savedEntity);
+    }
+
+    @Override
+    public Optional<JogoEntity> findEntityById(Integer codigoJogo) {
+        return jpaRepository.findById(codigoJogo);
     }
 }

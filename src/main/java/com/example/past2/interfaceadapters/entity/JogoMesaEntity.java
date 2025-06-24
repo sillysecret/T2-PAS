@@ -15,4 +15,11 @@ public class JogoMesaEntity extends JogoEntity {
     private Integer numeroPecas;
 
     // Getters e Setters
+    @Override
+    public Double getValorAluguel() {
+        return switch (tipo) {
+            case TABULEIRO -> getValorBase() * numeroPecas;
+            case CARTAS -> getValorBase() * (1.2);
+        };
+    }
 }

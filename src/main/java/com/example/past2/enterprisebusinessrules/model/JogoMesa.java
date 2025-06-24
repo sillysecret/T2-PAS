@@ -15,4 +15,12 @@ public class JogoMesa extends Jogo {
         this.tipo = tipo;
         this.numeroPecas = numeroPecas;
     }
+
+    @Override
+    public Double getValorAluguel() {
+        return switch (tipo) {
+            case TABULEIRO -> getValorBase() * numeroPecas;
+            case CARTAS -> getValorBase() * (1.2);
+        };
+    }
 }

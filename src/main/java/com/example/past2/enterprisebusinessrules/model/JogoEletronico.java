@@ -16,4 +16,13 @@ public class JogoEletronico extends Jogo {
         this.plataforma = plataforma;
     }
 
+    @Override
+    public Double getValorAluguel() {
+        Double acrescimo = switch (tipo) {
+            case AVENTURA -> 0.05;
+            case ESTRATEGIA -> 0.15;
+            case SIMULACAO -> 0.25;
+        };
+        return getValorBase() + (getValorBase() * acrescimo);
+    }
 }
