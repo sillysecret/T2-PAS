@@ -1,18 +1,20 @@
 package com.example.past2.applicationbusinessrules.usecases;
 
+import com.example.past2.enterprisebusinessrules.model.Aluguel;
 import com.example.past2.enterprisebusinessrules.service.AluguelService;
-import com.example.past2.interfaceadapters.dto.AluguelDTO;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class CadastrarAlugelUC {
+public class BuscarAluguelPorJogoUC {
     private final AluguelService aluguelService;
 
-    public CadastrarAlugelUC(AluguelService aluguelService) {
+    public BuscarAluguelPorJogoUC(AluguelService aluguelService) {
         this.aluguelService = aluguelService;
     }
 
-    public boolean execute(AluguelDTO aluguelDTO) {
-        return aluguelService.cadastrarAluguel(aluguelDTO);
+    public List<Aluguel> execute(int jogoId) {
+        return aluguelService.buscarAluguelPorJogo(jogoId);
     }
 }

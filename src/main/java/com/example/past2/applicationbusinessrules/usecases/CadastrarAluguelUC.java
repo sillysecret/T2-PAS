@@ -1,19 +1,18 @@
 package com.example.past2.applicationbusinessrules.usecases;
 
 import com.example.past2.enterprisebusinessrules.service.AluguelService;
-import com.example.past2.interfaceadapters.dto.ValorAluguelTotalDTO;
+import com.example.past2.interfaceadapters.dto.AluguelDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValorAlugelUC {
-
+public class CadastrarAluguelUC {
     private final AluguelService aluguelService;
 
-    public ValorAlugelUC(AluguelService aluguelService) {
+    public CadastrarAluguelUC(AluguelService aluguelService) {
         this.aluguelService = aluguelService;
     }
 
-    public ValorAluguelTotalDTO execute(int codigo) {
-        return aluguelService.buscaValorDeAlugel(codigo);
+    public boolean execute(AluguelDTO aluguelDTO) {
+        return aluguelService.cadastrarAluguel(aluguelDTO);
     }
 }

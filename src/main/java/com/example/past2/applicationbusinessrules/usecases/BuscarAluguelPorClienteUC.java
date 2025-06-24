@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class BuscarAlugelPorClienteUC {
+public class BuscarAluguelPorClienteUC {
     private final AluguelService aluguelService;
 
-    public BuscarAlugelPorClienteUC(AluguelService aluguelService) {
+    public BuscarAluguelPorClienteUC(AluguelService aluguelService) {
         this.aluguelService = aluguelService;
     }
 

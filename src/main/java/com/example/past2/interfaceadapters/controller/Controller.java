@@ -3,6 +3,7 @@ package com.example.past2.interfaceadapters.controller;
 import com.example.past2.applicationbusinessrules.usecases.*;
 import com.example.past2.enterprisebusinessrules.model.Aluguel;
 import com.example.past2.enterprisebusinessrules.model.Jogo;
+import com.example.past2.enterprisebusinessrules.model.Cliente;
 import com.example.past2.interfaceadapters.dto.AluguelDTO;
 import com.example.past2.interfaceadapters.dto.ClienteDTO;
 import com.example.past2.interfaceadapters.dto.JogoDTO;
@@ -18,30 +19,35 @@ import java.util.List;
 @RequestMapping("/acmegames")
 public class Controller {
     private final ListarJogosUC listarJogosUC;
+    private final ListarAlugueisUC listarAlugueisUC;
+    private final ListarClientesUC listarClientesUC;
     private final ValidarJogoUC validarJogoUC;
     private final CadastrarJogoUC cadastrarJogoUC;
-    private final ListarAlugueisUC  listarAlugueisUC;
     private final ValidarClienteUC validarClienteUC;
     private final ValidarAluguelUC validarAluguelUC;
     private final CadastrarClienteUC cadastrarClienteUC;
-    private final CadastrarAlugelUC  cadastrarAlugelUC;
-    private final BuscarAlugelPorClienteUC buscarAlugelPorCliente;
-    private final BuscarAlugelPorJogoUC buscarAlugelPorJogo;
+    private final CadastrarAluguelUC cadastrarAluguelUC;
+    private final BuscarAluguelPorClienteUC buscarAluguelPorClienteUC;
+    private final BuscarAluguelPorJogoUC buscarAluguelPorJogoUC;
     private final ValorJogoUC valorJogoUC;
-    private final ValorAlugelUC valorAluguelUC;
+    private final ValorAluguelUC valorAluguelUC;
 
-    public Controller(ListarJogosUC listarJogosUC, ValidarJogoUC validarJogoUC,
-                      CadastrarJogoUC cadastrarJogoUC, ListarAlugueisUC listarAlugueisUC, ValidarClienteUC validarClienteUC, ValidarAluguelUC validarAluguelUC, CadastrarClienteUC cadastrarClienteUC, CadastrarAlugelUC cadastrarAlugelUC, BuscarAlugelPorClienteUC buscarAlugelPorCliente, BuscarAlugelPorJogoUC buscarAlugelPorJogo, ValorJogoUC valorJogoUC, ValorAlugelUC valorAluguelUC) {
+    public Controller(ListarJogosUC listarJogosUC, ListarClientesUC listarClientesUC, ValidarJogoUC validarJogoUC,
+            CadastrarJogoUC cadastrarJogoUC, ListarAlugueisUC listarAlugueisUC, ValidarClienteUC validarClienteUC,
+            ValidarAluguelUC validarAluguelUC, CadastrarClienteUC cadastrarClienteUC,
+            CadastrarAluguelUC cadastrarAluguelUC, BuscarAluguelPorClienteUC buscarAluguelPorClienteUC,
+            BuscarAluguelPorJogoUC buscarAluguelPorJogoUC, ValorJogoUC valorJogoUC, ValorAluguelUC valorAluguelUC) {
         this.listarJogosUC = listarJogosUC;
+        this.listarClientesUC = listarClientesUC;
         this.validarJogoUC = validarJogoUC;
         this.cadastrarJogoUC = cadastrarJogoUC;
         this.listarAlugueisUC = listarAlugueisUC;
         this.validarClienteUC = validarClienteUC;
         this.validarAluguelUC = validarAluguelUC;
         this.cadastrarClienteUC = cadastrarClienteUC;
-        this.cadastrarAlugelUC = cadastrarAlugelUC;
-        this.buscarAlugelPorCliente = buscarAlugelPorCliente;
-        this.buscarAlugelPorJogo = buscarAlugelPorJogo;
+        this.cadastrarAluguelUC = cadastrarAluguelUC;
+        this.buscarAluguelPorClienteUC = buscarAluguelPorClienteUC;
+        this.buscarAluguelPorJogoUC = buscarAluguelPorJogoUC;
         this.valorJogoUC = valorJogoUC;
         this.valorAluguelUC = valorAluguelUC;
     }
@@ -54,8 +60,8 @@ public class Controller {
 
     @GetMapping("/cadastro/listaalugueis")
     public ResponseEntity<List<Aluguel>> listarAlugueis() {
-        List<Aluguel> jogos = listarAlugueisUC.execute();
-        return ResponseEntity.ok(jogos);
+        List<Aluguel> alugueis = listarAlugueisUC.execute();
+        return ResponseEntity.ok(alugueis);
     }
 
     @PostMapping("/validajogo")
@@ -74,8 +80,8 @@ public class Controller {
     }
 
     @PostMapping("/validacliente")
-    public ResponseEntity<Boolean> validaCliente(@RequestBody Integer codigo) {
-        boolean resultado = validarClienteUC.execute(codigo);
+    public ResponseEntity<Boolean> validaCliente(@RequestBody Integer numero) {
+        boolean resultado = validarClienteUC.execute(numero);
 
         return ResponseEntity.ok(resultado);
     }
@@ -88,9 +94,9 @@ public class Controller {
     }
 
     @GetMapping("/cadastro/listaclientes")
-    public ResponseEntity<List<Aluguel>> listarClientes() {
-        List<Aluguel> jogos = listarAlugueisUC.execute();
-        return ResponseEntity.ok(jogos);
+    public ResponseEntity<List<Cliente>> listarClientes() {
+        List<Cliente> cliente = listarClientesUC.execute();
+        return ResponseEntity.ok(cliente);
     }
 
     @PostMapping("/cadastro/cadcliente")
@@ -100,22 +106,22 @@ public class Controller {
 
     @PostMapping("/cadastro/cadaluguel")
     public boolean cadastrarAluguel(@RequestBody AluguelDTO dto) {
-        return cadastrarAlugelUC.execute(dto);
+        return cadastrarAluguelUC.execute(dto);
     }
 
     @GetMapping("/cliente/aluguel/{numero}")
     public List<Aluguel> listarAlugueisPorCliente(@PathVariable Integer numero) {
-        return buscarAlugelPorCliente.execute(numero);
+        return buscarAluguelPorClienteUC.execute(numero);
     }
 
-    @GetMapping("/jogo/aluguel/{numero}")
-    public List<Aluguel> listarAlugueisPorJogo(@PathVariable Integer numero) {
-        return buscarAlugelPorJogo.execute(numero);
+    @GetMapping("/jogo/aluguel/{codigo}")
+    public List<Aluguel> listarAlugueisPorJogo(@PathVariable Integer codigo) {
+        return buscarAluguelPorJogoUC.execute(codigo);
     }
 
-    @GetMapping("/aluguel/valorjogo/{numero}")
-    public Double obterPrecoDoJogo(@PathVariable Integer numero) {
-        return valorJogoUC.execute(numero);
+    @GetMapping("/aluguel/valorjogo/{codigo}")
+    public Double obterPrecoDoJogo(@PathVariable Integer codigo) {
+        return valorJogoUC.execute(codigo);
     }
 
     @GetMapping("/aluguel/valorfinal/{numero}")

@@ -60,7 +60,7 @@ public class AluguelService {
         return aluguelRepository.findByJogoId(jogoId);
     }
 
-    public ValorAluguelTotalDTO buscaValorDeAlugel(int alugelId){
+    public ValorAluguelTotalDTO buscaValorDeAluguel(int alugelId){
         Aluguel aluguel = aluguelRepository.findById(alugelId);
         Cliente cliente = aluguel.getCliente();
         Jogo jogo = aluguel.getJogo();
