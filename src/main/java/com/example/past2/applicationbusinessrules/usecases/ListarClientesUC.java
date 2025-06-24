@@ -1,8 +1,6 @@
 package com.example.past2.applicationbusinessrules.usecases;
 
-import com.example.past2.enterprisebusinessrules.model.Aluguel;
 import com.example.past2.enterprisebusinessrules.model.Cliente;
-import com.example.past2.enterprisebusinessrules.service.AluguelService;
 import com.example.past2.enterprisebusinessrules.service.ClienteService;
 import org.springframework.stereotype.Component;
 

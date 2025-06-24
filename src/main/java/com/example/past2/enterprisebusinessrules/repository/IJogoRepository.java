@@ -1,7 +1,7 @@
 package com.example.past2.enterprisebusinessrules.repository;
 
 import com.example.past2.enterprisebusinessrules.model.Jogo;
-import com.example.past2.interfaceadapters.entity.JogoEntity;
+import com.example.past2.enterprisebusinessrules.entity.JogoEntity;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,8 +1,8 @@
 package com.example.past2.interfaceadapters.mapper;
 
-import com.example.past2.interfaceadapters.entity.ClienteEntity;
-import com.example.past2.interfaceadapters.entity.EmpresarialEntity;
-import com.example.past2.interfaceadapters.entity.IndividualEntity;
+import com.example.past2.enterprisebusinessrules.entity.ClienteEntity;
+import com.example.past2.enterprisebusinessrules.entity.EmpresarialEntity;
+import com.example.past2.enterprisebusinessrules.entity.IndividualEntity;
 import com.example.past2.enterprisebusinessrules.model.Cliente;
 import com.example.past2.enterprisebusinessrules.model.Empresarial;
 import com.example.past2.enterprisebusinessrules.model.Individual;

@@ -1,7 +1,7 @@
 package com.example.past2.enterprisebusinessrules.repository;
 
 import com.example.past2.enterprisebusinessrules.model.Cliente;
-import com.example.past2.interfaceadapters.entity.ClienteEntity;
+import com.example.past2.enterprisebusinessrules.entity.ClienteEntity;
 
 import java.util.List;
 import java.util.Optional;

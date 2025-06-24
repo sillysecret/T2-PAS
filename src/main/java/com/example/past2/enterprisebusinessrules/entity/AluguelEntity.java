@@ -1,10 +1,14 @@
-package com.example.past2.interfaceadapters.entity;
+package com.example.past2.enterprisebusinessrules.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class AluguelEntity {
 
     @Id

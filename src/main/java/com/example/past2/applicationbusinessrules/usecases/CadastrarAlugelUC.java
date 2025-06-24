@@ -1,9 +1,7 @@
 package com.example.past2.applicationbusinessrules.usecases;
 
 import com.example.past2.enterprisebusinessrules.service.AluguelService;
-import com.example.past2.enterprisebusinessrules.service.ClienteService;
 import com.example.past2.interfaceadapters.dto.AluguelDTO;
-import com.example.past2.interfaceadapters.dto.ClienteDTO;
 import org.springframework.stereotype.Component;
 
 @Component

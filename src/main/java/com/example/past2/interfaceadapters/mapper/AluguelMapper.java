@@ -1,7 +1,7 @@
 package com.example.past2.interfaceadapters.mapper;
 
 import com.example.past2.enterprisebusinessrules.model.Aluguel;
-import com.example.past2.interfaceadapters.entity.AluguelEntity;
+import com.example.past2.enterprisebusinessrules.entity.AluguelEntity;
 
 public class AluguelMapper {
 

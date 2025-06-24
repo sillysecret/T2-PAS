@@ -1,6 +1,6 @@
 package com.example.past2.frameworksanddrivers.persistence;
 
-import com.example.past2.interfaceadapters.entity.AluguelEntity;
+import com.example.past2.enterprisebusinessrules.entity.AluguelEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -3,9 +3,9 @@ package com.example.past2.enterprisebusinessrules.service;
 import com.example.past2.enterprisebusinessrules.model.Cliente;
 import com.example.past2.enterprisebusinessrules.repository.IClienteRepository;
 import com.example.past2.interfaceadapters.dto.ClienteDTO;
-import com.example.past2.interfaceadapters.entity.ClienteEntity;
-import com.example.past2.interfaceadapters.entity.EmpresarialEntity;
-import com.example.past2.interfaceadapters.entity.IndividualEntity;
+import com.example.past2.enterprisebusinessrules.entity.ClienteEntity;
+import com.example.past2.enterprisebusinessrules.entity.EmpresarialEntity;
+import com.example.past2.enterprisebusinessrules.entity.IndividualEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

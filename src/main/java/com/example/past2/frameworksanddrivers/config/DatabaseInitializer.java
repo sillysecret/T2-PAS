@@ -5,7 +5,7 @@ import com.example.past2.enterprisebusinessrules.model.TipoMesa;
 import com.example.past2.frameworksanddrivers.persistence.IAluguelJpaRepository;
 import com.example.past2.frameworksanddrivers.persistence.IClienteJpaRepository;
 import com.example.past2.frameworksanddrivers.persistence.IJogoJpaRepository;
-import com.example.past2.interfaceadapters.entity.*;
+import com.example.past2.enterprisebusinessrules.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,99 +17,63 @@ import java.util.List;
 public class DatabaseInitializer {
 
     @Bean
-    public CommandLineRunner initDatabase(IClienteJpaRepository clienteRepository, IJogoJpaRepository jogoRepository, IAluguelJpaRepository aluguelRepository) {
+    public CommandLineRunner initDatabase(IClienteJpaRepository clienteRepository, IJogoJpaRepository jogoRepository,
+            IAluguelJpaRepository aluguelRepository) {
         return args -> {
-            EmpresarialEntity empresarial1 = new EmpresarialEntity();
-            empresarial1.setNome("Empresa Alpha");
-            empresarial1.setEndereco("Avenida Industrial, 1000");
-            empresarial1.setNomeFantasia("Alpha Tech");
-            empresarial1.setCnpj("11.222.333/0001-44");
+            ClienteEntity empresarial1 = new EmpresarialEntity("Empresa Alpha", "Avenida Industrial, 1000",
+                    "Alpha Tech", "11.222.333/0001-44");
+            ClienteEntity empresarial2 = new EmpresarialEntity("Empresa Beta", "Rua Comercial, 456", "Beta Softwares",
+                    "22.333.444/0001-55");
+            ClienteEntity empresarial3 = new EmpresarialEntity("Empresa Gamma", "Praça da Inovação, 789",
+                    "Gamma Solutions", "33.444.555/0001-66");
 
-            EmpresarialEntity empresarial2 = new EmpresarialEntity();
-            empresarial2.setNome("Empresa Beta");
-            empresarial2.setEndereco("Rua Comercial, 456");
-            empresarial2.setNomeFantasia("Beta Softwares");
-            empresarial2.setCnpj("22.333.444/0001-55");
+            ClienteEntity individual1 = new IndividualEntity("Carlos Silva", "Rua das Flores, 123", "123.456.789-10");
+            ClienteEntity individual2 = new IndividualEntity("Ana Oliveira", "Avenida Brasil, 789", "987.654.321-00");
+            ClienteEntity individual3 = new IndividualEntity("Pedro Santos", "Travessa dos Coqueiros, 45",
+                    "111.222.333-44");
 
-            IndividualEntity cliente1 = new IndividualEntity();
-            cliente1.setNome("Carlos Silva");
-            cliente1.setEndereco("Rua das Flores, 123");
-            cliente1.setCpf("123.456.789-10");
-
-            IndividualEntity cliente2 = new IndividualEntity();
-            cliente2.setNome("Ana Oliveira");
-            cliente2.setEndereco("Avenida Brasil, 789");
-            cliente2.setCpf("987.654.321-00");
-
-            clienteRepository.save(empresarial1);
-            clienteRepository.save(empresarial2);
-            clienteRepository.save(cliente1);
-            clienteRepository.save(cliente2);
-
+            clienteRepository
+                    .saveAll(List.of(empresarial1, empresarial2, empresarial3, individual1, individual2, individual3));
             System.out.println("Clientes populados no banco.");
 
-            JogoMesaEntity xadrez = new JogoMesaEntity();
-            xadrez.setNome("Xadrez Profissional");
-            xadrez.setValorBase(150.0);
-            xadrez.setTipo(TipoMesa.TABULEIRO);
-            xadrez.setNumeroPecas(32);
+            JogoEntity xadrez = new JogoMesaEntity("Xadrez Profissional", 15.0, TipoMesa.TABULEIRO, 32);
+            JogoEntity dama = new JogoMesaEntity("Damas Clássico", 10.0, TipoMesa.TABULEIRO, 24);
+            JogoEntity poker = new JogoMesaEntity("Kit de Poker Profissional", 25.0, TipoMesa.CARTAS, null); // Numero
+                                                                                                             // de peças
+                                                                                                             // não se
+                                                                                                             // aplica
+            JogoEntity uno = new JogoMesaEntity("Uno", 8.0, TipoMesa.CARTAS, null);
+            JogoEntity war = new JogoMesaEntity("War - Edição Clássica", 20.0, TipoMesa.TABULEIRO, 360);
 
-            JogoMesaEntity dama = new JogoMesaEntity();
-            dama.setNome("Damas Clássico");
-            dama.setValorBase(100.0);
-            dama.setTipo(TipoMesa.TABULEIRO);
-            dama.setNumeroPecas(24);
+            JogoEntity fifa = new JogoEletronicoEntity("EA Sports FC 25", 35.0, TipoEletronico.ESTRATEGIA, "PS5");
+            JogoEntity zelda = new JogoEletronicoEntity("The Legend of Zelda: Tears of the Kingdom", 40.0,
+                    TipoEletronico.AVENTURA, "Nintendo Switch");
+            JogoEntity flightSimulator = new JogoEletronicoEntity("Microsoft Flight Simulator", 30.0,
+                    TipoEletronico.SIMULACAO, "PC");
+            JogoEntity ageOfEmpires = new JogoEletronicoEntity("Age of Empires IV", 28.0, TipoEletronico.ESTRATEGIA,
+                    "PC");
+            JogoEntity theSims = new JogoEletronicoEntity("The Sims 4", 22.0, TipoEletronico.SIMULACAO,
+                    "PC/PS4/Xbox One");
 
-            JogoEletronicoEntity fifa = new JogoEletronicoEntity();
-            fifa.setNome("FIFA 24");
-            fifa.setValorBase(299.90);
-            fifa.setTipo(TipoEletronico.ESTRATEGIA);
-            fifa.setPlataforma("PS5");
-
-            JogoEletronicoEntity zelda = new JogoEletronicoEntity();
-            zelda.setNome("Zelda: Breath of the Wild");
-            zelda.setValorBase(349.90);
-            zelda.setTipo(TipoEletronico.AVENTURA);
-            zelda.setPlataforma("Nintendo Switch");
-
-            jogoRepository.save(xadrez);
-            jogoRepository.save(dama);
-            jogoRepository.save(fifa);
-            jogoRepository.save(zelda);
-
+            jogoRepository.saveAll(
+                    List.of(xadrez, dama, poker, uno, war, fifa, zelda, flightSimulator, ageOfEmpires, theSims));
             System.out.println("Jogos populados no banco.");
 
             List<ClienteEntity> clientes = clienteRepository.findAll();
             List<JogoEntity> jogos = jogoRepository.findAll();
 
-            if (clientes.size() < 2 || jogos.size() < 2) {
-                System.out.println("Dados insuficientes para criar aluguéis.");
+            if (clientes.size() < 3 || jogos.size() < 3) {
+                System.out.println("Dados de clientes ou jogos insuficientes para criar aluguéis.");
                 return;
             }
 
-            // Aluguel 1
-            AluguelEntity aluguel1 = new AluguelEntity();
-            aluguel1.setCliente(clientes.get(0));
-            aluguel1.setJogo(jogos.get(0));
-            aluguel1.setDataInicial(LocalDate.now().minusDays(2));
-            aluguel1.setPeriodo(5);
+            AluguelEntity aluguel1 = new AluguelEntity(null, LocalDate.now().minusDays(10), 7, clientes.get(0),
+                    jogos.get(5));
+            AluguelEntity aluguel2 = new AluguelEntity(null, LocalDate.now().minusDays(5), 10, clientes.get(3),
+                    jogos.get(1));
+            AluguelEntity aluguel3 = new AluguelEntity(null, LocalDate.now(), 15, clientes.get(4), jogos.get(6));
 
-            // Aluguel 2
-            AluguelEntity aluguel2 = new AluguelEntity();
-            aluguel2.setCliente(clientes.get(1));
-            aluguel2.setJogo(jogos.get(1));
-            aluguel2.setDataInicial(LocalDate.now());
-            aluguel2.setPeriodo(3);
-
-            AluguelEntity aluguel3 = new AluguelEntity();
-            aluguel3.setCliente(clientes.get(2));
-            aluguel3.setJogo(jogos.get(2));
-            aluguel3.setDataInicial(LocalDate.now());
-            aluguel3.setPeriodo(3);
-
-            aluguelRepository.save(aluguel1);
-            aluguelRepository.save(aluguel2);
-            aluguelRepository.save(aluguel3);
+            aluguelRepository.saveAll(List.of(aluguel1, aluguel2, aluguel3));
 
             System.out.println("Aluguéis populados no banco.");
         };

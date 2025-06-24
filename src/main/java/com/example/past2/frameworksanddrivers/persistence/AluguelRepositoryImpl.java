@@ -2,9 +2,8 @@ package com.example.past2.frameworksanddrivers.persistence;
 
 import com.example.past2.enterprisebusinessrules.model.Aluguel;
 import com.example.past2.enterprisebusinessrules.repository.IAluguelRepository;
-import com.example.past2.interfaceadapters.entity.AluguelEntity;
+import com.example.past2.enterprisebusinessrules.entity.AluguelEntity;
 import com.example.past2.interfaceadapters.mapper.AluguelMapper;
-import com.example.past2.interfaceadapters.mapper.ClienteMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

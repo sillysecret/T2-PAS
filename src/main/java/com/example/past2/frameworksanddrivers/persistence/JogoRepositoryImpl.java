@@ -2,7 +2,7 @@ package com.example.past2.frameworksanddrivers.persistence;
 
 import com.example.past2.enterprisebusinessrules.model.Jogo;
 import com.example.past2.enterprisebusinessrules.repository.IJogoRepository;
-import com.example.past2.interfaceadapters.entity.JogoEntity;
+import com.example.past2.enterprisebusinessrules.entity.JogoEntity;
 import com.example.past2.interfaceadapters.mapper.JogoMapper;
 import org.springframework.stereotype.Repository;
 

@@ -1,14 +1,16 @@
-package com.example.past2.interfaceadapters.entity;
+package com.example.past2.enterprisebusinessrules.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.math.BigDecimal;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo_jogo")
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class JogoEntity {
 
     @Id

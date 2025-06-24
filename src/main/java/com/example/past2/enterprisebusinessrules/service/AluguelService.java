@@ -7,7 +7,7 @@ import com.example.past2.enterprisebusinessrules.repository.IClienteRepository;
 import com.example.past2.enterprisebusinessrules.repository.IJogoRepository;
 import com.example.past2.interfaceadapters.dto.AluguelDTO;
 import com.example.past2.interfaceadapters.dto.ValorAluguelTotalDTO;
-import com.example.past2.interfaceadapters.entity.*;
+import com.example.past2.enterprisebusinessrules.entity.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
